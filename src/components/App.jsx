@@ -20,22 +20,29 @@ export default function App() {
 
   const [isEditing, setIsEditing] = useState(true);
 
-  function scrollToTop() {
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!e.currentTarget.checkValidity()) {
+      e.currentTarget.reportValidity();
+      return;
+    }
+
+    setIsEditing(false);
+
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    setIsEditing(false);
-    scrollToTop();
-  }
-
   function handleEdit() {
     setIsEditing(true);
-    scrollToTop();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   }
 
   return (
@@ -45,7 +52,10 @@ export default function App() {
       {isEditing ? (
         <form onSubmit={handleSubmit}>
           <div className="hero-image">
-            <img src="/images/hero.jpg" alt="CV application illustration" />
+            <img
+              src="/images/hero.jpg"
+              alt="CV application illustration"
+            />
           </div>
 
           <GeneralInfo
@@ -84,7 +94,10 @@ export default function App() {
       ) : (
         <div className="cv">
           <div className="hero-image">
-            <img src="/images/hero.jpg" alt="CV application illustration" />
+            <img
+              src="/images/hero.jpg"
+              alt="CV application illustration"
+            />
           </div>
 
           <section>

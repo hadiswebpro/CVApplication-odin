@@ -198,6 +198,19 @@ textarea {
   overflow-wrap: anywhere;
 }
 
+.error-message {
+  margin: 6px 0 0;
+  color: #76582e;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.general input:has(+ .error-message),
+.general textarea:has(+ .error-message) {
+  border-color: #b88a4a;
+}
+
+
 @media (max-width: 700px) {
   .app {
     padding: 45px 5% 75px;
