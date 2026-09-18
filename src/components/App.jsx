@@ -53,9 +53,9 @@ export default function App() {
         <form onSubmit={handleSubmit}>
           <div className="hero-image">
             <img
-              src="/images/hero.jpg"
+              src={`${import.meta.env.BASE_URL}images/hero.jpg`}
               alt="CV application illustration"
-            />
+           />
           </div>
 
           <GeneralInfo
@@ -95,7 +95,7 @@ export default function App() {
         <div className="cv">
           <div className="hero-image">
             <img
-              src="/images/hero.jpg"
+              src={`${import.meta.env.BASE_URL}images/hero.jpg`}
               alt="CV application illustration"
             />
           </div>
