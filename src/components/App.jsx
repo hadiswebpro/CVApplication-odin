@@ -4,33 +4,38 @@ import EducationalInfo from "./Educational.jsx";
 import PracticalInfo from "./Practical.jsx";
 
 export default function App() {
-  // General Information
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
-  // Educational Experience
   const [schoolName, setSchoolName] = useState("");
   const [studyTitle, setStudyTitle] = useState("");
   const [studyDate, setStudyDate] = useState("");
 
-  // Practical Experience
   const [companyName, setCompanyName] = useState("");
   const [positionTitle, setPositionTitle] = useState("");
   const [mainRespo, setMainRespo] = useState("");
   const [fromDate, setFromDate] = useState("");
   const [untilDate, setUntilDate] = useState("");
 
-  // Determines whether we are editing or viewing the CV
   const [isEditing, setIsEditing] = useState(true);
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
     setIsEditing(false);
+    scrollToTop();
   }
 
   function handleEdit() {
     setIsEditing(true);
+    scrollToTop();
   }
 
   return (
@@ -39,6 +44,10 @@ export default function App() {
 
       {isEditing ? (
         <form onSubmit={handleSubmit}>
+          <div className="hero-image">
+            <img src="/images/hero.jpg" alt="CV application illustration" />
+          </div>
+
           <GeneralInfo
             name={name}
             setName={setName}
@@ -74,6 +83,10 @@ export default function App() {
         </form>
       ) : (
         <div className="cv">
+          <div className="hero-image">
+            <img src="/images/hero.jpg" alt="CV application illustration" />
+          </div>
+
           <section>
             <h2>General Information</h2>
             <p>{name}</p>
